@@ -1,0 +1,1 @@
+git log --abbrev-commit --shortstat --graph --date=short > git.log
