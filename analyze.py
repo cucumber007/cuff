@@ -25,12 +25,12 @@ def show_left(stats, user):
 	sum = 0
 	for date in user_stats:
 		sum += user_stats[date]["lines_changed"]
-	avg = round(sum/len(user_stats)/100)*100
-	print("Current goal:", avg)
+	goal = round(sum/len(user_stats)/100)*100
+	#print("Current goal:", goal)
 	today_datetime = datetime.today()
-	today = datetime(today_datetime.year, today_datetime.month, today_datetime.day)
-	print(user_stats.keys())
-	print(user_stats[today])
+	today_stats = user_stats[datetime(today_datetime.year, today_datetime.month, today_datetime.day)]
+	today_lines_changed = today_stats["lines_changed"]
+	print("Today result: {} / {} ( {}% )".format(today_lines_changed, goal, round(today_lines_changed*100/goal)))
 
 
 
